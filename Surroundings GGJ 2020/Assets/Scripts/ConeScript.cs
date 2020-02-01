@@ -23,7 +23,7 @@ public class ConeScript : MonoBehaviour
         print("Hey I went off");
         if (other.tag == "Player")
         {
-            GM.KillPlayer(2.0f); 
+            GM.KillPlayer(0.5f); 
         }
     }
 }
