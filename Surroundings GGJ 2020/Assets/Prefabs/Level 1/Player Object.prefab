@@ -88,6 +88,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7260843111536978476}
     m_Modifications:
+    - target: {fileID: -5178661895559278292, guid: 66fb7f73d13558a439f75df50ed4ac1b,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -6299495077656190178, guid: 270476f027eadfd4184bf0dce07be4e6,
+        type: 3}
     - target: {fileID: -4216859302048453862, guid: 66fb7f73d13558a439f75df50ed4ac1b,
         type: 3}
       propertyPath: m_LocalPosition.x
