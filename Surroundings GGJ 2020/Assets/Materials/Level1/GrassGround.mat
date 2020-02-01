@@ -141,7 +141,7 @@ Material:
     - _CoatMask: 0
     - _CullMode: 2
     - _CullModeForward: 2
-    - _CurrentTime: 19
+    - _CurrentTime: 29
     - _Cutoff: 0.5
     - _DepthOffsetEnable: 0
     - _DetailAlbedoScale: 1
@@ -193,7 +193,7 @@ Material:
     - _IridescenceThickness: 1
     - _LinkDetailsWithBase: 1
     - _MaterialID: 1
-    - _MaxTime: 20
+    - _MaxTime: 30
     - _Metallic: 0
     - _NormalMapSpace: 0
     - _NormalScale: 1

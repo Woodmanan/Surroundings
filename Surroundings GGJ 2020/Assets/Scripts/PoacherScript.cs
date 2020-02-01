@@ -6,11 +6,13 @@ public class PoacherScript : MonoBehaviour
 {
     public int maxRotation = 90;
 
-    public Quaternion start;
 
-    public Quaternion target; 
+    private Quaternion start;
+
+    private Quaternion target; 
 
     public float rotateSpeed = 1.0f;
+    private Quaternion offsetQuat;
 
     float rotation; 
 
@@ -23,12 +25,13 @@ public class PoacherScript : MonoBehaviour
         //start = transform.rotation;
 
         //StartCoroutine(Rotate()); 
+        offsetQuat = transform.rotation;//Quaternion.Euler(offset);
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.rotation = Quaternion.Euler(0, maxRotation * Mathf.Sin(Time.time * rotateSpeed), 0); 
+        transform.rotation = offsetQuat * Quaternion.Euler(0, maxRotation * Mathf.Sin(Time.time * rotateSpeed), 0); 
     }
 
     /*
