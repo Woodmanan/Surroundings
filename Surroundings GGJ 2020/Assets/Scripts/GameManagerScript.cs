@@ -40,24 +40,29 @@ public class GameManagerScript : MonoBehaviour
     }
 
     // kill player after some delay 
-    void KillPlayer(float delay)
+    public void KillPlayer(float delay)
     {
         playerLives--; 
 
         if (playerLives <= 0)
         {
             // reload(reset) current scene 
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
+            Invoke("ReloadScene", delay); 
         }
         else
         {
-            Respawn(respawnPoint); 
+            Invoke("Respawn", delay); 
         }
     }
 
     // respawn at certain point 
-    void Respawn(Vector3 point)
+    void Respawn()
     {
-        player.transform.position = point; 
+        player.transform.position = respawnPoint; 
+    }
+
+    void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
