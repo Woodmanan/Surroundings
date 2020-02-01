@@ -73,7 +73,6 @@ public class PlayerMovement : MonoBehaviour
             //We're Idling! This is a stub for where the animation will go
         }
 
-        print("Rigid Velocity is " + rigid.velocity);
         
     }
 

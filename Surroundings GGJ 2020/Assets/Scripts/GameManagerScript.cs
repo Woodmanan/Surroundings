@@ -9,13 +9,15 @@ public class GameManagerScript : MonoBehaviour
     GameObject player; 
 
     int playerLives;
-    float timeLeft;
+    public int timeLeft;
 
     public Vector3 respawnPoint = Vector3.zero;
 
+    [SerializeField] private TMPro.TextMeshProUGUI timer;
+
     private void Awake()
     {
-        if (GM = null)
+        if (GM == null)
         {
             GM = this; 
         }
@@ -30,13 +32,16 @@ public class GameManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("PlayerObject"); 
+        player = GameObject.Find("PlayerObject");
+        print("Starting coroutine!");
+        StartCoroutine("Countdown");
+        print("Coroutine started!");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        print("Does this work");
     }
 
     // kill player after some delay 
@@ -59,5 +64,25 @@ public class GameManagerScript : MonoBehaviour
     void Respawn(Vector3 point)
     {
         player.transform.position = point; 
+    }
+
+    private IEnumerator Countdown()
+    {
+        print("Started!");
+        while (timeLeft > 0)
+        {
+            yield return new WaitForSeconds(1f);
+            print("This is working!");
+            timeLeft--;
+            timer.SetText("Time Left: " + timeLeft);
+        }
+        //Time is up, restart the scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(respawnPoint, .5f);
     }
 }
