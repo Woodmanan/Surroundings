@@ -420,7 +420,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100002, guid: ed389028d40603840b8d2a0a537b9da5, type: 3}
+  - {fileID: 2100000, guid: 4ba91ad1f73636541b2b88005c3db86c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1194,6 +1194,8 @@ MonoBehaviour:
   timeLeft: 100
   respawnPoint: {x: -0.58, y: -1.48, z: -3.02}
   timer: {fileID: 1120296805}
+  objectsToDesaturate:
+  - {fileID: 492782518}
 --- !u!4 &2127305539
 Transform:
   m_ObjectHideFlags: 0

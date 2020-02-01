@@ -9,11 +9,13 @@ public class GameManagerScript : MonoBehaviour
     GameObject player; 
 
     int playerLives;
-    public int timeLeft;
+    public float timeLeft;
 
     public Vector3 respawnPoint = Vector3.zero;
 
     [SerializeField] private TMPro.TextMeshProUGUI timer;
+    [SerializeField] private GameObject[] objectsToDesaturate;
+    private Material[] materialsToDesaturate;
 
     private void Awake()
     {
@@ -23,7 +25,7 @@ public class GameManagerScript : MonoBehaviour
         }
         else if (GM != this)
         {
-            Destroy(this); 
+            Destroy(this.gameObject); 
         }
 
         DontDestroyOnLoad(this); 
@@ -33,15 +35,32 @@ public class GameManagerScript : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("PlayerObject");
-        print("Starting coroutine!");
+
+        materialsToDesaturate = new Material[objectsToDesaturate.Length];
+        for (int i = 0; i < objectsToDesaturate.Length; i++)
+        {
+            print("i = " + i);
+            materialsToDesaturate[i] = objectsToDesaturate[i].GetComponent<MeshRenderer>().materials[0];
+        }
+
+        //Set up floats
+        foreach (Material m in materialsToDesaturate)
+        {
+            print("Setting floats!");
+            print(m.name);
+            print(m.GetFloat("_CurrentTime"));
+            m.SetFloat("_CurrentTime", timeLeft);
+            m.SetFloat("_MaxTime", timeLeft);
+        }
+
+
         StartCoroutine("Countdown");
-        print("Coroutine started!");
     }
 
     // Update is called once per frame
     void Update()
     {
-        print("Does this work");
+
     }
 
     // kill player after some delay 
@@ -68,13 +87,20 @@ public class GameManagerScript : MonoBehaviour
 
     private IEnumerator Countdown()
     {
-        print("Started!");
+        timeLeft += 1;
+        print("Started Timer!");
         while (timeLeft > 0)
         {
-            yield return new WaitForSeconds(1f);
-            print("This is working!");
+            
             timeLeft--;
             timer.SetText("Time Left: " + timeLeft);
+            foreach (Material m in materialsToDesaturate)
+            {
+                print("Setting a material: " + m.name);
+                m.SetFloat("_CurrentTime", timeLeft);
+                print("Current is " + m.GetFloat("_CurrentTime"));
+            }
+            yield return new WaitForSeconds(1f);
         }
         //Time is up, restart the scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
