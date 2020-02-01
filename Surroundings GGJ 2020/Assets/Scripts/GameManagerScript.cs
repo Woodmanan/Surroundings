@@ -14,8 +14,7 @@ public class GameManagerScript : MonoBehaviour
     public Vector3 respawnPoint = Vector3.zero;
 
     [SerializeField] private TMPro.TextMeshProUGUI timer;
-    [SerializeField] private GameObject[] objectsToDesaturate;
-    private Material[] materialsToDesaturate;
+    [SerializeField] private Material[] materialsToDesaturate;
 
     private void Awake()
     {
@@ -28,20 +27,14 @@ public class GameManagerScript : MonoBehaviour
             Destroy(this.gameObject); 
         }
 
-        DontDestroyOnLoad(this); 
+        //Commenting this until we decide we need it to repeat for every scene
+        //DontDestroyOnLoad(this); 
     }
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("PlayerObject");
-
-        materialsToDesaturate = new Material[objectsToDesaturate.Length];
-        for (int i = 0; i < objectsToDesaturate.Length; i++)
-        {
-            print("i = " + i);
-            materialsToDesaturate[i] = objectsToDesaturate[i].GetComponent<MeshRenderer>().materials[0];
-        }
 
         //Set up floats
         foreach (Material m in materialsToDesaturate)
@@ -96,7 +89,6 @@ public class GameManagerScript : MonoBehaviour
         print("Started Timer!");
         while (timeLeft > 0)
         {
-            
             timeLeft--;
             timer.SetText("Time Left: " + timeLeft);
             foreach (Material m in materialsToDesaturate)
