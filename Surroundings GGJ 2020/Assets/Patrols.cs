@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Patrols : MonoBehaviour
 {
-
+    
     [SerializeField] private float speed;
+
+    [SerializeField] private Vector3 offset;
 
     [SerializeField] private Vector3[] points;
     private Vector3 point1;
@@ -21,8 +23,8 @@ public class Patrols : MonoBehaviour
         {
             Debug.LogError("Not enought points for Patrolling!!");
         }
-        point1 = transform.position;
-        point2 = points[0];
+        point1 = transform.position - offset;
+        point2 = points[0] - offset;
         setUpPoints(point1, point2);
         count = 0;
     }
@@ -46,13 +48,13 @@ public class Patrols : MonoBehaviour
             yield return null;
         }
 
-        point1 = points[count];
+        point1 = points[count] - offset;
         count++;
         if (count == points.Length)
         {
             count = 0;
         }
-        point2 = points[count];
+        point2 = points[count] - offset;
         setUpPoints(point1, point2);
 
     }
