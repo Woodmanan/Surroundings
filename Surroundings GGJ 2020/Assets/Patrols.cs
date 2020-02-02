@@ -100,4 +100,9 @@ public class Patrols : MonoBehaviour
             Gizmos.DrawLine(points[points.Length - 1], points[0]);
         }
     }
+
+    public Vector3 getDestination()
+    {
+        return point2;
+    }
 }
