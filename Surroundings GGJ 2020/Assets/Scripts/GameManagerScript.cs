@@ -44,7 +44,6 @@ public class GameManagerScript : MonoBehaviour
         maxTime = timeLeft;
         vol = GetComponent<Volume>();
         colors = (ColorAdjustments) vol.profile.components[2];
-        colors.saturation.value = -50f;
         player = GameObject.Find("PlayerObject");
 
 
@@ -93,6 +92,7 @@ public class GameManagerScript : MonoBehaviour
             timeLeft--;
             timer.SetText("Time Left: " + timeLeft);
             colors.saturation.value =  (1 - (timeLeft / maxTime)) * -100;
+            colors.contrast.value = (1 - (timeLeft / maxTime)) * -80;
             yield return new WaitForSeconds(1f);
         }
         //Time is up, restart the scene
