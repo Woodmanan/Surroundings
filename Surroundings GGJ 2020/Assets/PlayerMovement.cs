@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     //Components we need
     private Rigidbody rigid;
+    [SerializeField] private Animator anim;
 
 
     //Serialized Variables
@@ -45,6 +46,12 @@ public class PlayerMovement : MonoBehaviour
             Quaternion newDirection = Quaternion.Euler(0, targetRotation, 0);
             transform.rotation = Quaternion.Lerp(transform.rotation, newDirection, lerpAmount);
 
+            if (anim)
+            {
+                anim.SetBool("Moving", true);
+                anim.SetBool("Idling", false);
+            }
+
             //Now we need to move
             //Determines the 2D velocity
             
@@ -71,6 +78,12 @@ public class PlayerMovement : MonoBehaviour
         {
             rigid.velocity = new Vector3(0, rigid.velocity.y, 0);
             //We're Idling! This is a stub for where the animation will go
+
+            if (anim)
+            {
+                anim.SetBool("Idling", true);
+                anim.SetBool("Moving", false);
+            }
         }
 
         

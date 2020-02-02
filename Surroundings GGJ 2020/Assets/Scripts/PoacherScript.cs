@@ -14,6 +14,8 @@ public class PoacherScript : MonoBehaviour
     public float rotateSpeed = 1.0f;
     private Quaternion offsetQuat;
 
+    private Patrols pat;
+
     float rotation; 
 
     // Start is called before the first frame update
@@ -26,12 +28,24 @@ public class PoacherScript : MonoBehaviour
 
         //StartCoroutine(Rotate()); 
         offsetQuat = transform.rotation;//Quaternion.Euler(offset);
+        pat = GetComponent<Patrols>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.rotation = offsetQuat * Quaternion.Euler(0, maxRotation * Mathf.Sin(Time.time * rotateSpeed), 0); 
+        if (pat)
+        {
+            Vector3 dest = pat.getDestination();
+            //print("Dest is: " + dest);
+            dest = dest - transform.position;
+            Quaternion target = Quaternion.Euler(0, Mathf.Atan2(dest.z, dest.x) * Mathf.Rad2Deg, 0);
+            transform.rotation = target;
+        }
+        else
+        {
+            transform.rotation = offsetQuat * Quaternion.Euler(0, maxRotation * Mathf.Sin(Time.time * rotateSpeed), 0);
+        }
     }
 
     /*
