@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private string horizontalAxis = "Horizontal";
     [SerializeField] private string verticalAxis = "Vertical";
 
+    [SerializeField] private bool rootMotion = false;
+
     //Private Variables
     private Vector2 direction = new Vector2(0,0);
 
@@ -54,22 +56,24 @@ public class PlayerMovement : MonoBehaviour
 
             //Now we need to move
             //Determines the 2D velocity
-            
-            
-            float rotation = -1 * (transform.rotation.eulerAngles.y) * Mathf.Deg2Rad;
-            Vector2 xyVelocity;
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                xyVelocity = new Vector2(Mathf.Cos(rotation), Mathf.Sin(rotation)) * speed * speedSprinting;
-            }
-            else
-            {
-                xyVelocity = new Vector2(Mathf.Cos(rotation), Mathf.Sin(rotation)) * speed;
-            }
 
-            //Translate it to the 3D one
-            Vector3 rigidVelocity = new Vector3(xyVelocity.x, rigid.velocity.y, xyVelocity.y);
-            rigid.velocity = rigidVelocity;
+            if (!rootMotion)
+            {
+                float rotation = -1 * (transform.rotation.eulerAngles.y) * Mathf.Deg2Rad;
+                Vector2 xyVelocity;
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    xyVelocity = new Vector2(Mathf.Cos(rotation), Mathf.Sin(rotation)) * speed * speedSprinting;
+                }
+                else
+                {
+                    xyVelocity = new Vector2(Mathf.Cos(rotation), Mathf.Sin(rotation)) * speed;
+                }
+
+                //Translate it to the 3D one
+                Vector3 rigidVelocity = new Vector3(xyVelocity.x, rigid.velocity.y, xyVelocity.y);
+                rigid.velocity = rigidVelocity;
+            }
             
 
             
