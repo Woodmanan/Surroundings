@@ -40,6 +40,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8276414251270421072}
     m_Modifications:
+    - target: {fileID: -4850792345919951528, guid: a7919710abd08e645bfcd9e1f39ac33b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e8bbb177239295442bb29eb22a5177f7, type: 2}
     - target: {fileID: -4216859302048453862, guid: a7919710abd08e645bfcd9e1f39ac33b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -100,11 +105,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.9369202
       objectReference: {fileID: 0}
+    - target: {fileID: -1798588473857134130, guid: a7919710abd08e645bfcd9e1f39ac33b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e8bbb177239295442bb29eb22a5177f7, type: 2}
     - target: {fileID: -927199367670048503, guid: a7919710abd08e645bfcd9e1f39ac33b,
         type: 3}
       propertyPath: m_Name
       value: Seaweed Bunch 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7687424284495048748, guid: a7919710abd08e645bfcd9e1f39ac33b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e8bbb177239295442bb29eb22a5177f7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7919710abd08e645bfcd9e1f39ac33b, type: 3}
 --- !u!4 &4008500706552024769 stripped
@@ -120,6 +135,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8276414251270421072}
     m_Modifications:
+    - target: {fileID: -4850792345919951528, guid: 42b80bb3591e23e4db971911a12ba90c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e8bbb177239295442bb29eb22a5177f7, type: 2}
     - target: {fileID: -4216859302048453862, guid: 42b80bb3591e23e4db971911a12ba90c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -180,11 +200,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.5973712
       objectReference: {fileID: 0}
+    - target: {fileID: -1798588473857134130, guid: 42b80bb3591e23e4db971911a12ba90c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e8bbb177239295442bb29eb22a5177f7, type: 2}
     - target: {fileID: -927199367670048503, guid: 42b80bb3591e23e4db971911a12ba90c,
         type: 3}
       propertyPath: m_Name
       value: Seaweed Bunch 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7687424284495048748, guid: 42b80bb3591e23e4db971911a12ba90c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e8bbb177239295442bb29eb22a5177f7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42b80bb3591e23e4db971911a12ba90c, type: 3}
 --- !u!4 &4008500706880379864 stripped
@@ -200,6 +230,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8276414251270421072}
     m_Modifications:
+    - target: {fileID: -4850792345919951528, guid: d0f9b004fb6358446b449921cccf70b8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e8bbb177239295442bb29eb22a5177f7, type: 2}
     - target: {fileID: -4216859302048453862, guid: d0f9b004fb6358446b449921cccf70b8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -260,11 +295,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.383882
       objectReference: {fileID: 0}
+    - target: {fileID: -1798588473857134130, guid: d0f9b004fb6358446b449921cccf70b8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e8bbb177239295442bb29eb22a5177f7, type: 2}
     - target: {fileID: -927199367670048503, guid: d0f9b004fb6358446b449921cccf70b8,
         type: 3}
       propertyPath: m_Name
       value: Seaweed Bunch 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7687424284495048748, guid: d0f9b004fb6358446b449921cccf70b8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e8bbb177239295442bb29eb22a5177f7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0f9b004fb6358446b449921cccf70b8, type: 3}
 --- !u!4 &4008500708166436993 stripped

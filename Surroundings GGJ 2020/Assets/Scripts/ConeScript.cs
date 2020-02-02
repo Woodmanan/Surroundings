@@ -20,7 +20,7 @@ public class ConeScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //print("Hey I went off");
+        print("Hey I went off");
         if (other.tag == "Player")
         {
             GM.KillPlayer(0.5f); 
