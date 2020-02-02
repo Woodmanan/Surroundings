@@ -23,7 +23,7 @@ public class Patrols : MonoBehaviour
         {
             Debug.LogError("Not enought points for Patrolling!!");
         }
-        point1 = transform.position - offset;
+        point1 = transform.position;
         point2 = points[0] - offset;
         setUpPoints(point1, point2);
         count = 0;
