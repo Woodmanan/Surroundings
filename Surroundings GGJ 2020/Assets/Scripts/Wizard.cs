@@ -13,6 +13,9 @@ public class ReplaceGameObjects : ScriptableWizard
     public Object NewType;
     public GameObject[] OldObjects;
 
+    public bool oneRecursive = false;
+    public GameObject recursiveObject;
+
     [MenuItem("Custom/Replace GameObjects")]
 
 
@@ -25,17 +28,33 @@ public class ReplaceGameObjects : ScriptableWizard
     {
         //Transform[] Replaces;
         //Replaces = Replace.GetComponentsInChildren<Transform>();
-
-        foreach (GameObject go in OldObjects)
+        if (!oneRecursive)
         {
-            GameObject newObject;
-            newObject = (GameObject) PrefabUtility.InstantiatePrefab(NewType);
-            newObject.transform.position = go.transform.position;
-            newObject.transform.rotation = go.transform.rotation;
-            newObject.transform.parent = go.transform.parent;
+            foreach (GameObject go in OldObjects)
+            {
+                GameObject newObject;
+                newObject = (GameObject)PrefabUtility.InstantiatePrefab(NewType);
+                newObject.transform.position = go.transform.position;
+                newObject.transform.rotation = go.transform.rotation;
+                newObject.transform.parent = go.transform.parent;
 
-            DestroyImmediate(go);
+                DestroyImmediate(go);
 
+            }
+        }
+        else
+        {
+            for (int i = 0; i < recursiveObject.transform.childCount; i++)
+            {
+                GameObject go = recursiveObject.transform.GetChild(i).gameObject;
+                GameObject newObject;
+                newObject = (GameObject)PrefabUtility.InstantiatePrefab(NewType);
+                newObject.transform.position = go.transform.position;
+                newObject.transform.rotation = go.transform.rotation;
+                newObject.transform.parent = go.transform.parent;
+
+                DestroyImmediate(go);
+            }
         }
 
     }
