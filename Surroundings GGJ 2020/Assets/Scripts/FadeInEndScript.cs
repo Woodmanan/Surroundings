@@ -7,6 +7,8 @@ public class FadeInEndScript : MonoBehaviour
 {
     public float showDelay = 1.5f;
 
+    public float displayTime = 10.0f; 
+
     public Text i;
 
     private void Awake()
