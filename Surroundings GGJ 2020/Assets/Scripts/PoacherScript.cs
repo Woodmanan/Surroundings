@@ -37,7 +37,7 @@ public class PoacherScript : MonoBehaviour
         if (pat)
         {
             Vector3 dest = pat.getDestination();
-            print("Dest is: " + dest);
+            //print("Dest is: " + dest);
             dest = dest - transform.position;
             Quaternion target = Quaternion.Euler(0, Mathf.Atan2(dest.z, dest.x) * Mathf.Rad2Deg, 0);
             transform.rotation = target;

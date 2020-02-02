@@ -10,11 +10,11 @@ public class GameManagerScript : MonoBehaviour
     public static GameManagerScript GM = null; 
     GameObject player; 
 
-    int playerLives;
+    int playerLives = 3;
     public float timeLeft;
     private float maxTime;
 
-    public Vector3 respawnPoint = Vector3.zero;
+    public Vector3 respawnPoint;
 
     public Volume vol;
     private ColorAdjustments colors;
@@ -41,10 +41,12 @@ public class GameManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        respawnPoint = Vector3.zero; 
+
         maxTime = timeLeft;
         vol = GetComponent<Volume>();
         colors = (ColorAdjustments) vol.profile.components[2];
-        player = GameObject.Find("PlayerObject");
+        player = GameObject.FindGameObjectWithTag("Player");
 
 
         StartCoroutine("Countdown");
