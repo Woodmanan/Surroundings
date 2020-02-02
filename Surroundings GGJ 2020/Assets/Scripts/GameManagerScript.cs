@@ -41,12 +41,12 @@ public class GameManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        respawnPoint = Vector3.zero; 
-
         maxTime = timeLeft;
         vol = GetComponent<Volume>();
         colors = (ColorAdjustments) vol.profile.components[2];
         player = GameObject.FindGameObjectWithTag("Player");
+
+        respawnPoint = player.transform.position;
 
 
         StartCoroutine("Countdown");
