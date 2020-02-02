@@ -91,7 +91,7 @@ public class GameManagerScript : MonoBehaviour
         {
             timeLeft--;
             timer.SetText("Time Left: " + timeLeft);
-            colors.saturation.value =  (1 - (timeLeft / maxTime)) * -100;
+            colors.saturation.value = 30 + (1 - (timeLeft / maxTime)) * -130;
             colors.contrast.value = (1 - (timeLeft / maxTime)) * -80;
             yield return new WaitForSeconds(1f);
         }
