@@ -21,9 +21,11 @@ public class CheckpointScript : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Debug.Log("hit checkpoint" + transform.position); 
+            //Debug.Log("hit checkpoint" + transform.position); 
             GM.respawnPoint = transform.position;
-            Debug.Log(GM.respawnPoint);
+            //Debug.Log(GM.respawnPoint);
+
+            Destroy(this.gameObject, 0.5f); 
         }  
     }
 }
