@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.HighDefinition;
 
 public class GameManagerScript : MonoBehaviour
 {
@@ -10,11 +12,16 @@ public class GameManagerScript : MonoBehaviour
 
     int playerLives;
     public float timeLeft;
+    private float maxTime;
 
     public Vector3 respawnPoint = Vector3.zero;
 
+    public Volume vol;
+    private ColorAdjustments colors;
+
     [SerializeField] private TMPro.TextMeshProUGUI timer;
-    [SerializeField] private Material[] materialsToDesaturate;
+
+    
 
     private void Awake()
     {
@@ -34,17 +41,11 @@ public class GameManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        maxTime = timeLeft;
+        vol = GetComponent<Volume>();
+        colors = (ColorAdjustments) vol.profile.components[2];
+        colors.saturation.value = -50f;
         player = GameObject.Find("PlayerObject");
-
-        //Set up floats
-        foreach (Material m in materialsToDesaturate)
-        {
-            print("Setting floats!");
-            print(m.name);
-            print(m.GetFloat("_CurrentTime"));
-            m.SetFloat("_CurrentTime", timeLeft);
-            m.SetFloat("_MaxTime", timeLeft);
-        }
 
 
         StartCoroutine("Countdown");
@@ -91,12 +92,7 @@ public class GameManagerScript : MonoBehaviour
         {
             timeLeft--;
             timer.SetText("Time Left: " + timeLeft);
-            foreach (Material m in materialsToDesaturate)
-            {
-                print("Setting a material: " + m.name);
-                m.SetFloat("_CurrentTime", timeLeft);
-                print("Current is " + m.GetFloat("_CurrentTime"));
-            }
+            colors.saturation.value =  (1 - (timeLeft / maxTime)) * -100;
             yield return new WaitForSeconds(1f);
         }
         //Time is up, restart the scene
